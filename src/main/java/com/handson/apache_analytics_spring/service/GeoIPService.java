@@ -20,18 +20,12 @@ public class GeoIPService {
         this.dbReader = new DatabaseReader.Builder(dbResource.getFile()).build();
     }
 
-//    public GeoIPService() throws IOException {
-//        File database = new File("geolite/GeoLite2-Country.mmdb");
-//        this.dbReader = new DatabaseReader.Builder(database).build();
-//    }
-
     public String getCountryFromIp(String ip) {
         try {
             InetAddress ipAddress = InetAddress.getByName(ip);
             CountryResponse response = dbReader.country(ipAddress);
             return response.getCountry().getName();
         } catch (AddressNotFoundException e) {
-            // Handle the case where the IP is not found in the database
             return "Unknown";
         } catch (IOException | GeoIp2Exception e) {
             e.printStackTrace();

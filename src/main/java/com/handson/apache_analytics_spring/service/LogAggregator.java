@@ -1,7 +1,6 @@
 package com.handson.apache_analytics_spring.service;
 
 import com.handson.apache_analytics_spring.metrics.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class LogAggregator {
     private final List<LogMetric> metrics = new ArrayList<>();
 
     public LogAggregator(CountryMetric countryMetric, OsMetric osMetric, BrowserMetric browserMetric) {
-        // Add the metrics to the aggregator
         metrics.add(countryMetric);
         metrics.add(osMetric);
         metrics.add(browserMetric);

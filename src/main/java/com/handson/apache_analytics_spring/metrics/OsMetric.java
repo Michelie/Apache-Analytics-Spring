@@ -44,6 +44,6 @@ public class OsMetric implements LogMetric {
 
     @Override
     public String metricType() {
-        return "Os";
+        return METRIC_TYPE_OS;
     }
 }

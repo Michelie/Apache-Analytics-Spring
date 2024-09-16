@@ -1,5 +1,7 @@
 package com.handson.apache_analytics_spring.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.handson.apache_analytics_spring.metrics.LogMetric;
 import com.handson.apache_analytics_spring.metrics.StatData;
 import com.handson.apache_analytics_spring.service.LogAggregator;
@@ -9,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -62,4 +65,5 @@ public class LogController {
         logAggregator.printResults();
         return ResponseEntity.status(HttpStatus.OK).body("Stats printed to console.");
     }
+
 }

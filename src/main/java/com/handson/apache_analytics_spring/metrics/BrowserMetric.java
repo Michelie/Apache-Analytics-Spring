@@ -42,6 +42,6 @@ public class BrowserMetric implements LogMetric {
 
     @Override
     public String metricType() {
-        return "Browser";
+        return METRIC_TYPE_BROWSER;
     }
 }

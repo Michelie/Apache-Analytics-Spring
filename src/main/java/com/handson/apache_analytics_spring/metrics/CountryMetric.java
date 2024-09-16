@@ -50,6 +50,6 @@ public class CountryMetric implements LogMetric {
 
     @Override
     public String metricType() {
-        return "Country";
+        return METRIC_TYPE_COUNTRY;
     }
 }

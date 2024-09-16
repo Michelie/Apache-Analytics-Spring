@@ -32,8 +32,8 @@ public class LogFileParser {
         Pattern pattern = Pattern.compile(LOG_PATTERN);
         Matcher matcher = pattern.matcher(logLine);
         if (matcher.matches()) {
-            String ip = matcher.group(1); // IP address
-            String userAgentString = matcher.group(9); // User-agent string
+            String ip = matcher.group(1); //IP address
+            String userAgentString = matcher.group(9); //user-agent string
             aggregator.addEntry(ip, userAgentString);
         } else {
             System.err.println("Line doesn't match the expected format: " + logLine);
