@@ -9,7 +9,7 @@ and go to http://localhost:8080/swagger-ui.html here you'll see the swagger ui w
 through the POST request you can upload .log file. <br>
 the GET request: /print will print to the console all the stats.<br>
 the GET request: /stats would return a JSON with all stas.<br>
-the GET request /stats/{type} - you can enter Country, Os or Browser and it will return JSON with the stats according to the type.
+the GET request /stats/{type} - you can enter Country, Os or Browser and it will return JSON with the stats according to the type.<br><br>
 if you go to http://localhost:8080/ you'll have a nice html page where you can upload a log file and get the stats in a pie chart form. 
 
 You can also pull a docker image I've made and run it in the command prompt:
