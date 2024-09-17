@@ -4,8 +4,8 @@ This is the solution to the home test.
 It is a Java project using SpringBoot. 
 
 ## How to run
-you can run manually in the IDE after pulling the project,<br> 
-go to http://localhost:8080/swagger-ui.html here you'll see the swagger ui with the requests.<br>
+You can run manually in the IDE after pulling the project,<br> 
+and go to http://localhost:8080/swagger-ui.html here you'll see the swagger ui with the requests.<br>
 through the POST request you can upload .log file. <br>
 the GET request: /print will print to the console all the stats.<br>
 the GET request: /stats would return a JSON with all stas.<br>
