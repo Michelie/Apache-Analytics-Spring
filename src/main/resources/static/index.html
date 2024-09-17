@@ -6,7 +6,6 @@
   <title>Stats Pie Charts</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Style for the body */
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
@@ -16,17 +15,14 @@
       text-align: center;
     }
 
-    /* Style for the h1 and h2 headings */
     h1, h2 {
       color: #555;
     }
 
-    /* Style for the file input and upload button container */
     div {
       margin-bottom: 20px;
     }
 
-    /* Prettify the file input */
     input[type="file"] {
       margin-right: 10px;
       padding: 10px;
@@ -36,7 +32,7 @@
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* Style for the upload button */
+
     button {
       background-color: #28a745;
       color: white;
@@ -49,18 +45,16 @@
       transition: background-color 0.3s ease;
     }
 
-    /* Hover effect for the upload button */
+
     button:hover {
       background-color: #218838;
     }
 
-    /* Styling for the charts section when it becomes visible */
     #chartsSection {
       display: none;
       margin-top: 30px;
     }
 
-    /* Style for the canvas elements (charts) */
     canvas {
       margin: 20px auto;
       display: block;
@@ -71,14 +65,12 @@
 <body>
 <h1>Stats Pie Charts</h1>
 
-<!-- File upload section -->
 <div>
   <h2>Upload Log File</h2>
   <input type="file" id="logFileInput" />
   <button id="uploadButton">Upload</button>
 </div>
 
-<!-- Pie chart sections - initially hidden -->
 <div id="chartsSection">
   <h2>Country Distribution</h2>
   <canvas id="countryChart" width="400" height="400"></canvas>
@@ -101,7 +93,7 @@
         }
     }
 
-    // Upload the log file
+    //upload log file
     async function uploadLogFile(file) {
         const formData = new FormData();
         formData.append('file', file);
@@ -123,7 +115,7 @@
         }
     }
 
-    // Process top 8 items + others
+    //process top 8 items and others
     function processTop8(dataArray) {
         dataArray.sort((a, b) => parseFloat(b.aggr) - parseFloat(a.aggr));
 
@@ -138,7 +130,6 @@
         return top8;
     }
 
-    // Create pie charts
     async function createCharts() {
         const stats = await fetchStats();
 
@@ -188,7 +179,6 @@
         });
     }
 
-    // Generate random colors for chart segments
     function getColors(numColors) {
         const colors = [];
         for (let i = 0; i < numColors; i++) {
@@ -198,7 +188,6 @@
         return colors;
     }
 
-    // Event listener for the upload button
     document.getElementById('uploadButton').addEventListener('click', () => {
         const fileInput = document.getElementById('logFileInput');
         const file = fileInput.files[0];

@@ -54,9 +54,13 @@ public class LogAggregator {
             }
         }
     }
+
     public void printResults() {
-        for (LogMetric metric : metrics) {
-            metric.printResults();
+        for (int i = 0; i < metrics.size(); i++) {
+            metrics.get(i).printResults();
+            if (i < metrics.size() - 1) {
+                System.out.println();
+            }
         }
     }
 }

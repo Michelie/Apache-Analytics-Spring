@@ -44,9 +44,6 @@ public class LogController {
             Path logFilePath = logDirectory.resolve(file.getOriginalFilename());
             Files.write(logFilePath, file.getBytes());
             logFileParser.processLogFile(logFilePath, logAggregator);
-            //Path tempFile = Files.createTempFile("uploaded-log", ".log");
-            //Files.write(tempFile, file.getBytes());
-            //logFileParser.processLogFile(tempFile, logAggregator);
             return ResponseEntity.status(HttpStatus.OK).body("Log file processed successfully.");
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to process log file.");
@@ -75,5 +72,4 @@ public class LogController {
         logAggregator.printResults();
         return ResponseEntity.status(HttpStatus.OK).body("Stats printed to console.");
     }
-
 }

@@ -1,6 +1,4 @@
 package com.handson.apache_analytics_spring.metrics;
-
-
 import eu.bitwalker.useragentutils.UserAgent;
 import org.springframework.stereotype.Service;
 
