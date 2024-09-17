@@ -9,6 +9,7 @@ import com.handson.apache_analytics_spring.service.LogFileParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -30,13 +31,22 @@ public class LogController {
 
     @Autowired
     private LogFileParser logFileParser;
+    @Value("${log.file.directory}")
+    private String logFileDirectory;
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadLogFile(@RequestParam("file") MultipartFile file) {
         try {
-            Path tempFile = Files.createTempFile("uploaded-log", ".log");
-            Files.write(tempFile, file.getBytes());
-            logFileParser.processLogFile(tempFile, logAggregator);
+            Path logDirectory = Path.of(logFileDirectory);
+            if (!Files.exists(logDirectory)) {
+                Files.createDirectories(logDirectory);
+            }
+            Path logFilePath = logDirectory.resolve(file.getOriginalFilename());
+            Files.write(logFilePath, file.getBytes());
+            logFileParser.processLogFile(logFilePath, logAggregator);
+            //Path tempFile = Files.createTempFile("uploaded-log", ".log");
+            //Files.write(tempFile, file.getBytes());
+            //logFileParser.processLogFile(tempFile, logAggregator);
             return ResponseEntity.status(HttpStatus.OK).body("Log file processed successfully.");
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to process log file.");

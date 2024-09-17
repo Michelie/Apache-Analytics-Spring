@@ -91,7 +91,6 @@
 </div>
 
 <script>
-    // Fetch stats from the server
     async function fetchStats() {
         try {
             const response = await fetch('/api/logs/stats');
@@ -115,7 +114,7 @@
             if (response.ok) {
                 alert('File uploaded successfully.');
                 document.getElementById('chartsSection').style.display = 'block'; // Show the charts section
-                createCharts();  // Refresh charts with the new data
+                createCharts();
             } else {
                 alert('File upload failed.');
             }
